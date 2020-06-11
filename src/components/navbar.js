@@ -1,6 +1,8 @@
 import React from "react"
 import Logo from "./logo"
 import { Link } from "gatsby"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import "./navbar.css"
 
 export default function Navbar() {
@@ -11,6 +13,7 @@ export default function Navbar() {
                 <MenuItem to="/">Home</MenuItem>
                 <a href="./resume.pdf"><li>Resume</li></a>
                 <MenuItem to="/ctf-writeups">CTF Writeups</MenuItem>
+                <FontAwesomeIcon icon={faBars} size="2x" />
             </ul>
         </div>
     )
