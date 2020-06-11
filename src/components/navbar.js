@@ -9,7 +9,7 @@ export default function Navbar() {
             <Link to="/"><Logo /></Link>
             <ul>
                 <MenuItem to="/">Home</MenuItem>
-                <li><a href="./resume.pdf">Resume</a></li>
+                <a href="./resume.pdf"><li>Resume</li></a>
                 <MenuItem to="/ctf-writeups">CTF Writeups</MenuItem>
             </ul>
         </div>
