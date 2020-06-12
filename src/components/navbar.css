@@ -17,7 +17,7 @@
     list-style: none;
     float: right;
     margin-top: 4px;
-    margin-right: 8px;
+    margin-right: 12px;
 }
 
 .navBar li {
@@ -61,6 +61,8 @@
     .navItems.open {
         display: block;
         text-align: left;
+        position: relative;
+        margin-left: -40px;
     }
 
     .navBar ul {
@@ -71,5 +73,6 @@
     .navBar li {
         display: block;
         background-color: white;
+        padding-left: 24px;
     }
 }
