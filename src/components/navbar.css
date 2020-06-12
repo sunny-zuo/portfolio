@@ -48,9 +48,10 @@
         cursor: pointer;
         text-decoration: underline;
         display: block;
-        margin: 0;
         padding: 4px 12px;
         float: right;
+        margin-top: 6px;
+        margin-right: 8px;
     }
 
     .navItems {
@@ -69,11 +70,6 @@
     }
     .navBar li {
         display: block;
-        padding: 10px 6px;
         background-color: white;
-    }
-    .navBar button {
-        margin-top: 6px;
-        margin-right: 8px;
     }
 }
