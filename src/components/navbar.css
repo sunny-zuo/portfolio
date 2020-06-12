@@ -55,15 +55,17 @@
 
     .navItems.open {
         display: block;
-        width: 100%;
         text-align: left;
-        background-color: lightgrey;
     }
 
     .navBar ul {
+        margin-top: 12px;
         float: left;
+        width: 100%;
     }
     .navBar li {
         display: block;
+        padding: 10px 6px;
+        background-color: white;
     }
 }
