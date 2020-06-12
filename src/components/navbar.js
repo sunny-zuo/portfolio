@@ -5,20 +5,40 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import "./navbar.css"
 
-export default function Navbar() {
-    return (
-        <div className="navBar">
-            <Link to="/"><Logo /></Link>
-            <ul>
-                <MenuItem to="/">Home</MenuItem>
-                <a href="./resume.pdf"><li>Resume</li></a>
-                <MenuItem to="/ctf-writeups">CTF Writeups</MenuItem>
-                <FontAwesomeIcon icon={faBars} size="2x" />
-            </ul>
-        </div>
-    )
+class Navbar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            navShown: false
+        }
+    }
+
+    toggleNav() {
+        this.setState({ navShown: !(this.state.navShown)});
+    }
+
+    render() {
+        return (
+            <div className="navBar">
+                <Link to="/"><Logo /></Link>
+                <button onClick={() => this.toggleNav()}>
+                        <FontAwesomeIcon icon={faBars} size="2x" />
+                </button>
+                <div className={this.state.navShown ? "navItems open" : "navItems"}>
+                    <ul>
+                        <MenuItem to="/">Home</MenuItem>
+                        <a href="./resume.pdf"><li>Resume</li></a>
+                        <MenuItem to="/ctf-writeups">CTF Writeups</MenuItem>
+                    </ul>
+                </div>
+            </div>
+        )
+    }
 }
+
 
 const MenuItem = props => (
     <Link to={props.to}><li>{props.children}</li></Link>
 )
+
+export default Navbar;

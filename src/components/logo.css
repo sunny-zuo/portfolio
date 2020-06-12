@@ -1,12 +1,9 @@
-span {
+.logo {
     color: black;
     font-size: 28px;
     z-index: 2;
     font-family: 'Quicksand', serif;
     font-weight: 700;
     display: inline;
-}
-
-a {
     text-decoration: none;
 }

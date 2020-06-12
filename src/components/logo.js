@@ -3,6 +3,6 @@ import './logo.css'
 
 export default function Logo() {
     return (
-        <span>Sunny Zuo</span>
+        <span className="logo">Sunny Zuo</span>
     )
 }

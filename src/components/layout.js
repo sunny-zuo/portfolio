@@ -3,7 +3,7 @@ import "./layout.css"
 import Navbar from "./navbar"
 
 export default function Layout({ children }) {
-    return <div>
+    return <div className="layout">
         <Navbar />
         {children}
     </div>
