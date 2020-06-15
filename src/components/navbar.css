@@ -1,6 +1,6 @@
 .navBar {
     padding: 10px 0px;
-    height: 50px;
+    min-height: 50px;
     width: 100vw;
     margin: 0;
     position: relative;
@@ -60,18 +60,16 @@
     .navItems.open {
         display: block;
         text-align: left;
-        position: relative;
-        margin-left: -40px;
     }
 
     .navBar ul {
-        margin-top: 12px;
+        margin-top: 16px;
+        padding: 8px 0px;
         float: left;
         width: 100%;
     }
     .navBar li {
         display: block;
-        background-color: white;
         padding-left: 24px;
     }
 }
