@@ -4,7 +4,5 @@
 .body {
     max-width: 1080px;
     margin: auto;
-    position: relative;
-    top: 50px;
-    padding: 8px;
+    padding: 60px 8px;
 }
