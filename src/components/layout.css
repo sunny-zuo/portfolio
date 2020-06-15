@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+body {
+    margin: 0;
+}
+
 .body {
     max-width: 1080px;
     margin: auto;
-    padding: 60px 8px;
+    padding: 8px 20px;
 }
