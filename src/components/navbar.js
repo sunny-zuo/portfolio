@@ -27,6 +27,7 @@ class Navbar extends React.Component {
                 <div className={this.state.navShown ? "navItems open" : "navItems"}>
                     <ul>
                         <MenuItem to="/">Home</MenuItem>
+                        <MenuItem to="/about">About Me</MenuItem>
                         <a href="./resume.pdf"><li>Resume</li></a>
                         <MenuItem to="/ctf-writeups">CTF Writeups</MenuItem>
                     </ul>
