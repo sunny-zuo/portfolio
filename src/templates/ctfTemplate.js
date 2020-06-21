@@ -21,12 +21,11 @@ export default function Template({data}) {
 }
 
 export const pageQuery = graphql`
-    query($slug: String!) {
-        markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+    query($ctf: String!, $title: String!) {
+        markdownRemark(frontmatter: {ctf: {eq: $ctf}, title: {eq: $title}}) {
             html
             frontmatter {
                 date(formatString: "YYYY-MM-DD")
-                slug
                 title
                 tags
                 ctf
