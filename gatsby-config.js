@@ -10,8 +10,8 @@ module.exports = {
   {
     resolve: 'gatsby-source-filesystem',
     options: {
-      name: 'md-writeups',
-      path: `${__dirname}/src/md-writeups`
+      name: 'md-ctf-writeups',
+      path: `${__dirname}/src/md-ctf-writeups`
     }
   },
   'gatsby-transformer-remark'],
