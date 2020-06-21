@@ -28,7 +28,7 @@ class Navbar extends React.Component {
                     <ul>
                         <MenuItem to="/">Home</MenuItem>
                         <MenuItem to="/about">About Me</MenuItem>
-                        <a href="./resume.pdf"><li>Resume</li></a>
+                        <a href="/resume.pdf"><li>Resume</li></a>
                         <MenuItem to="/ctf-writeups">CTF Writeups</MenuItem>
                     </ul>
                 </div>
