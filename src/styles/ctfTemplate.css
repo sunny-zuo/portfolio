@@ -1,0 +1,30 @@
+.ctf-writeup-content {
+    font-family: 'Roboto', sans-serif;
+}
+
+.ctf-writeup-content pre {
+    background-color: #e9eff5;
+    padding: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    overflow: auto;
+}
+
+.ctf-writeup-content code {
+    background-color: #e9eff5;
+    padding: 4px;
+}
+
+.ctf-writeup-content img {
+    max-width: 100%;
+}
+
+.ctf-writeup h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: green;
+}
+
+.ctf-writeup h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
