@@ -1,0 +1,38 @@
+.ctfCard {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 340px;
+    min-height: 140px;
+    display: inline-block;
+    margin: 10px 8px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+}
+
+.ctfCard h1 {
+    font-size: 24px;
+    color: black;
+}
+
+.ctfCard h2 {
+    position: absolute;
+    top: 2px;
+    right: 14px;
+    font-size: 14px;
+    color: black;
+}
+
+.ctfCard h3 {
+    font-size: 18px;
+    color: green;
+}
+
+.ctfCard h4 {
+    font-size: 14px;
+    color: black;
+}
+
+.ctfCard .cardContainer {
+    padding: 2px 16px;
+}
