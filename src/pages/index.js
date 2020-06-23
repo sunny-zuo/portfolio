@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Layout>
       <Header headerText="Home"/>
-      Hello!
+      <p>Hello! This page is currently still under construction. In the meantime, check out the About or CTF Writeup pages!</p>
     </Layout>
   )
 }
