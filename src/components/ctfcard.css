@@ -18,7 +18,7 @@
 
 .ctfCard h2 {
     position: absolute;
-    top: 2px;
+    bottom: 2px;
     right: 14px;
     font-size: 14px;
     color: black;

@@ -12,7 +12,7 @@ Author: JC01010
 ```
 
 ## Solution
-With no additional info from the challenge description, we can continue where we left off with [Do Stars Spin? 1](./DoStarsSpin1.md). Another [deleted post](https://web.archive.org/web/20200527041338/https://www.reddit.com/user/dostarsevenspin/) contained information about his Instagram:
+With no additional info from the challenge description, we can continue where we left off with [Do Stars Spin? 1](../do-stars-spin-1). Another [deleted post](https://web.archive.org/web/20200527041338/https://www.reddit.com/user/dostarsevenspin/) contained information about his Instagram:
 
 ```
 Hey, I need help on my instagram profile
@@ -45,6 +45,6 @@ https://en.wikipedia.org/wiki/Star
 EVEN WIKIPEDIA SAID SO!
 ```
 
-The first tweet led to the flag for [Do Stars Spin? 3](./DoStarsSpin3.md). The second tweet linked to two Wikipedia articles. Checking the revision history of both articles, I noticed that Wikipedia user Dostarsspin made an edit on the [Spin Star article](https://en.wikipedia.org/w/index.php?title=Spin_Star&action=history). The user Dostarsspin had a [few other 'contributions'](https://en.wikipedia.org/wiki/Special:Contributions/Dostarsspin), including an edit on the Wikipedia page for flags. The [revision on the Flag page](https://en.wikipedia.org/w/index.php?title=Flag&diff=prev&oldid=959455544) contains our flag.
+The first tweet led to the flag for [Do Stars Spin? 3](../do-stars-spin-3). The second tweet linked to two Wikipedia articles. Checking the revision history of both articles, I noticed that Wikipedia user Dostarsspin made an edit on the [Spin Star article](https://en.wikipedia.org/w/index.php?title=Spin_Star&action=history). The user Dostarsspin had a [few other 'contributions'](https://en.wikipedia.org/wiki/Special:Contributions/Dostarsspin), including an edit on the Wikipedia page for flags. The [revision on the Flag page](https://en.wikipedia.org/w/index.php?title=Flag&diff=prev&oldid=959455544) contains our flag.
 
 **Flag:** ```flag{te3_6ov3rnM3n7_i5_h1d1ng_1nf0!}```

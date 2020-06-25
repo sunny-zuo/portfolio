@@ -12,7 +12,7 @@ Author: JC01010
 ```
 
 ## Solution
-With no additional info from the challenge description, we can continue where we left off with [Do Stars Spin? 2](./DoStarsSpin2.md). The twitter profile had this tweet:
+With no additional info from the challenge description, we can continue where we left off with [Do Stars Spin? 2](../do-stars-spin-2). The twitter profile had this tweet:
 
 ```
 smh, imagine getting banned on one of the tfes forums, at least im not banned on the 2nd one
