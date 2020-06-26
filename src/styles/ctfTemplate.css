@@ -11,7 +11,11 @@
 
 .ctf-writeup-content code {
     background-color: #e9eff5;
-    padding: 4px;
+    padding: 2px 4px;
+}
+
+.ctf-writeup-content pre code {
+    padding: 0px;
 }
 
 .ctf-writeup-content img {
