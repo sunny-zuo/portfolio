@@ -28,6 +28,7 @@ Error: High CPU Usage
 ```
 
 However, Traffic Light 1001 seems to work. We are greeted with a page to upload our XML firmware:
+
 ![Image showing the interface to upload XML firmware](./files/upload-firmware.png)
 
 There is a provided example, with the following script:
