@@ -2,7 +2,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 90%;
     max-width: 340px;
-    min-height: 140px;
+    height: 140px;
     display: inline-block;
     margin: 10px 8px;
     position: relative;
@@ -27,16 +27,21 @@
 
 .ctfCard h3 {
     font-size: 18px;
-    color: green;
-    font-family: "Open Sans", sans-serif;
-}
-
-.ctfCard h4 {
-    font-size: 12px;
-    color: black;
+    color: #0EB1D2;
     font-family: "Open Sans", sans-serif;
 }
 
 .ctfCard .cardContainer {
     padding: 2px 16px;
+}
+
+.tags ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.tags li {
+    display: inline-block;
+    margin-right: 4px;
+    text-decoration: none;
 }

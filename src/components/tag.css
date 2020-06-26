@@ -1,0 +1,8 @@
+.tag span {
+    color: white;
+    background-color: #4C2AC2;
+    padding: 4px 10px;
+    border-radius: 24px;
+    font-size: 12px;
+    font-family: "Roboto", sans-serif;
+}
