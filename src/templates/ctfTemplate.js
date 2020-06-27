@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import TagHolder from "../components/tagHolder"
 import "../styles/ctfTemplate.css"
 
 export default function Template({data}) {
@@ -13,7 +14,7 @@ export default function Template({data}) {
             <div className="ctf-writeup">
                 <h1>{frontmatter.ctf}: {frontmatter.title}</h1>
                 <h3>{frontmatter.date}</h3>
-                <h4>Tags: {frontmatter.tags}</h4>
+                <TagHolder tags={frontmatter.tags} />
                 <div className="ctf-writeup-content" dangerouslySetInnerHTML={{ __html: html }} />
             </div>
         </div>
