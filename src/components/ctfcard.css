@@ -2,7 +2,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     width: 90%;
     max-width: 340px;
-    height: 140px;
+    height: 136px;
     display: inline-block;
     margin: 10px 8px;
     position: relative;
@@ -26,7 +26,7 @@
 }
 
 .ctfCard h3 {
-    font-size: 18px;
+    font-size: 16px;
     color: #62c493;
     font-family: "Open Sans", sans-serif;
 }

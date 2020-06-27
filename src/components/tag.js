@@ -3,14 +3,14 @@ import React from "react"
 export default function Tag(props) {
     const colorArray = [
         ["web", "#a56def"],
-        ["beginner", "#D81159"],
+        ["beginner", "#6464c8"],
         ["sql", "#70C1B3"],
-        ["xss", "#7d23ee"],
+        ["xss", "#00af54"],
         ["xxe", "#256def"],
-        ["lfi", "#bb342f"],
-        ["json", "#ee7674"],
-        ["misc", "#00af54"],
-        ["osint", "#544e61"],
+        ["lfi", "#646464"],
+        ["json", "#166c4d"],
+        ["misc", "#FE5D9F"],
+        ["osint", "#eaa221"],
         ["jwt", "#5cc8ff"]
     ];
     const colorMap = new Map(colorArray);
