@@ -1,0 +1,10 @@
+.tags ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.tags li {
+    display: inline-block;
+    margin-right: 4px;
+    text-decoration: none;
+}
