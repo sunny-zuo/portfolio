@@ -8,9 +8,9 @@ export default function Tag(props) {
         ["xss", "#00af54"],
         ["xxe", "#256def"],
         ["lfi", "#646464"],
-        ["json", "#166c4d"],
+        ["json", "#eaa221"],
         ["misc", "#FE5D9F"],
-        ["osint", "#eaa221"],
+        ["osint", "#166c4d"],
         ["jwt", "#5cc8ff"]
     ];
     const colorMap = new Map(colorArray);

@@ -2,22 +2,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.ctf-writeup-content pre {
-    background-color: #e9eff5;
-    padding: 12px;
-    font-family: 'IBM Plex Mono', monospace;
-    overflow: auto;
-}
-
-.ctf-writeup-content code {
-    background-color: #e9eff5;
-    padding: 2px 4px;
-}
-
-.ctf-writeup-content pre code {
-    padding: 0px;
-}
-
 .ctf-writeup-content img {
     max-width: 100%;
 }
