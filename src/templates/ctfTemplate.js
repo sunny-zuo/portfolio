@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import TagHolder from "../components/tagHolder"
+import PageHelmet from "../components/pageHelmet"
 import "../styles/ctfTemplate.css"
 
 export default function Template({data}) {
@@ -10,14 +11,15 @@ export default function Template({data}) {
 
     return (
         <Layout>
-        <div className="ctf-writeup-container">
-            <div className="ctf-writeup">
-                <h1>{frontmatter.ctf}: {frontmatter.title}</h1>
-                <h3>{frontmatter.date}</h3>
-                <TagHolder tags={frontmatter.tags} />
-                <div className="ctf-writeup-content" dangerouslySetInnerHTML={{ __html: html }} />
+            <PageHelmet title={frontmatter.title} />
+            <div className="ctf-writeup-container">
+                <div className="ctf-writeup">
+                    <h1>{frontmatter.ctf}: {frontmatter.title}</h1>
+                    <h3>{frontmatter.date}</h3>
+                    <TagHolder tags={frontmatter.tags} />
+                    <div className="ctf-writeup-content" dangerouslySetInnerHTML={{ __html: html }} />
+                </div>
             </div>
-        </div>
         </Layout>
     )
 }
