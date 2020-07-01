@@ -4,7 +4,6 @@ import TagHolder from "../components/tagHolder"
 import "./ctfcard.css";
 
 export default function CTFCard (props) {
-    
     const formatPath = (ctf, title) => {
         return `/ctf-writeups/` +
             ctf.replace(/\s/g, "-").toLowerCase().replace(/[^a-zA-Z0-9-]/g, "") + "/" + // space -> dash, lowercase, remove non alphanumeric plus dash
@@ -18,7 +17,7 @@ export default function CTFCard (props) {
                     <h1>{props.title}</h1>
                     <h2>{props.ctf}</h2>
                     <h3>{props.date}</h3>
-                    <TagHolder tags={props.tags} />
+                    <TagHolder tags={props.tags} title={props.title} />
                 </div>
             </Link>
         </div>
