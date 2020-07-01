@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby";
 
 export default function Tag(props) {
     const colorArray = [
@@ -22,6 +23,16 @@ export default function Tag(props) {
         borderRadius: "24px",
         fontSize: "12px",
         fontFamily: "'Roboto', sans-serif"
+    }
+
+    if (props.location === "template") {
+        return (
+            <Link to={`/ctf-writeups/?tag=${props.tag}`} style={{ textDecoration: 'none' }}>
+                <div className="tag">
+                    <span style={tagStyle}>{props.tag}</span>
+                </div>
+            </Link>
+        )
     }
     return (
         <div className="tag">

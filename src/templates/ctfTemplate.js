@@ -16,7 +16,7 @@ export default function Template({data}) {
                 <div className="ctf-writeup">
                     <h1>{frontmatter.ctf}: {frontmatter.title}</h1>
                     <h3>{frontmatter.date}</h3>
-                    <TagHolder tags={frontmatter.tags} title={frontmatter.title} />
+                    <TagHolder tags={frontmatter.tags} title={frontmatter.title} location="template" />
                     <div className="ctf-writeup-content" dangerouslySetInnerHTML={{ __html: html }} />
                 </div>
             </div>

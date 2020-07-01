@@ -17,7 +17,7 @@ export default function CTFCard (props) {
                     <h1>{props.title}</h1>
                     <h2>{props.ctf}</h2>
                     <h3>{props.date}</h3>
-                    <TagHolder tags={props.tags} title={props.title} />
+                    <TagHolder tags={props.tags} title={props.title} location="card" />
                 </div>
             </Link>
         </div>
