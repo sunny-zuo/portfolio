@@ -11,10 +11,11 @@ export default function CTFWriteups({data}) {
     const location = useLocation();
     const searchQuery = getSearchQueries(location.search);
     const Posts = data.allMarkdownRemark.edges.filter(edge => matchSearch(edge, searchQuery)).map(edge => <CTFCard title={edge.node.frontmatter.title} date={edge.node.frontmatter.date} ctf={edge.node.frontmatter.ctf} tags={edge.node.frontmatter.tags} key={edge.node.frontmatter.title}/>)
+    const pageTitle = (searchQuery?.ctf) ? `${searchQuery.ctf} Writeups` : "CTF Writeups";
     return (
         <Layout>
-            <PageHelmet title="CTF Writeups" />
-            <Header headerText="CTF Writeups"/>
+            <PageHelmet title={pageTitle} />
+            <Header headerText={pageTitle} />
                 <div className="ctfCards" style={{ textAlign: "center" }}>
                     {Posts}
                 </div>

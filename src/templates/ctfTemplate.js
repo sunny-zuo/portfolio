@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import TagHolder from "../components/tagHolder"
 import PageHelmet from "../components/pageHelmet"
@@ -14,7 +14,7 @@ export default function Template({data}) {
             <PageHelmet title={frontmatter.title} />
             <div className="ctf-writeup-container">
                 <div className="ctf-writeup">
-                    <h1>{frontmatter.ctf}: {frontmatter.title}</h1>
+                    <h1><Link to={`/ctf-writeups/?ctf=${frontmatter.ctf}`} style={{textDecoration: "none", color: "black"}}>{frontmatter.ctf}</Link>: {frontmatter.title}</h1>
                     <h3>{frontmatter.date}</h3>
                     <TagHolder tags={frontmatter.tags} title={frontmatter.title} location="template" />
                     <div className="ctf-writeup-content" dangerouslySetInnerHTML={{ __html: html }} />
