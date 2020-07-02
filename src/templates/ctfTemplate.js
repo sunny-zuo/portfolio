@@ -14,7 +14,7 @@ export default function Template({data}) {
             <PageHelmet title={frontmatter.title} />
             <div className="ctf-writeup-container">
                 <div className="ctf-writeup">
-                    <h1><Link to={`/ctf-writeups/?ctf=${frontmatter.ctf}`} style={{textDecoration: "none", color: "black"}}>{frontmatter.ctf}</Link>: {frontmatter.title}</h1>
+                    <h1><Link to={`/ctf-writeups/?ctf=${frontmatter.ctf}`} style={{ textDecoration: "underline", color: "black" }}>{frontmatter.ctf}</Link>: {frontmatter.title}</h1>
                     <h3>{frontmatter.date}</h3>
                     <TagHolder tags={frontmatter.tags} title={frontmatter.title} location="template" />
                     <div className="ctf-writeup-content" dangerouslySetInnerHTML={{ __html: html }} />

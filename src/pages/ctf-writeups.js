@@ -12,6 +12,18 @@ export default function CTFWriteups({data}) {
     const searchQuery = getSearchQueries(location.search);
     const Posts = data.allMarkdownRemark.edges.filter(edge => matchSearch(edge, searchQuery)).map(edge => <CTFCard title={edge.node.frontmatter.title} date={edge.node.frontmatter.date} ctf={edge.node.frontmatter.ctf} tags={edge.node.frontmatter.tags} key={edge.node.frontmatter.title}/>)
     const pageTitle = (searchQuery?.ctf) ? `${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')} Writeups` : "CTF Writeups";
+
+    if (Posts.length === 0) {
+        const style = {
+            textAlign: 'left',
+            fontSize: '20px',
+            fontWeight: '400'
+        }
+        let baseText = 'Unfortunately, no writeups were found ';
+        baseText += (searchQuery?.ctf) ? `for "${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
+        baseText += (searchQuery?.tag) ? ` with tag "${searchQuery.tag.replace(/[^a-zA-Z0-9 ]/g, '')}".` : '.';
+        Posts.push(<h1 style={style}>{baseText}</h1>)
+    }
     return (
         <Layout>
             <PageHelmet title={pageTitle} />
