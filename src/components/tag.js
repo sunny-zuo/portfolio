@@ -12,7 +12,8 @@ export default function Tag(props) {
         ["json", "#eaa221"],
         ["misc", "#FE5D9F"],
         ["osint", "#166c4d"],
-        ["jwt", "#5cc8ff"]
+        ["jwt", "#5cc8ff"],
+        ["crypto", "#DC143C"]
     ];
     const colorMap = new Map(colorArray);
 
