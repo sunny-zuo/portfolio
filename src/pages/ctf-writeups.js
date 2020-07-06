@@ -21,8 +21,9 @@ export default function CTFWriteups({data}) {
         }
         let baseText = 'Unfortunately, no writeups were found ';
         baseText += (searchQuery?.ctf) ? `for "${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
-        baseText += (searchQuery?.tag) ? ` with tag "${searchQuery.tag.replace(/[^a-zA-Z0-9 ]/g, '')}".` : '.';
-        Posts.push(<h1 style={style}>{baseText}</h1>)
+        baseText += (searchQuery?.tag) ? ` with tag "${searchQuery.tag.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
+        baseText += (searchQuery?.q) ? ` for the query "${searchQuery.q.replace(/[^a-zA-Z0-9 ]/g, '')}".` : '.';
+        Posts.push(<h1 style={style} key='noSearchFound'>{baseText}</h1>)
     }
     return (
         <Layout>
@@ -37,18 +38,33 @@ export default function CTFWriteups({data}) {
 
 const matchSearch = (edge, searchQuery) => {
     if (searchQuery) {
-        const { tag, ctf } = searchQuery;
+        const { tag, ctf, q } = searchQuery;
         if (tag) {
-            if (!edge.node.frontmatter.tags.includes(tag.toLowerCase())) {
-                return false;
+            const tagArray = edge.node.frontmatter.tags.split(", ");
+            for (let i = 0; i < tagArray.length; i++) {
+                if (tagArray[i] === tag.toLowerCase()) { return true; }
             }
+            return false;
         }
         if (ctf) {
-            if (edge.node.frontmatter.ctf.toLowerCase() !== ctf.toLowerCase()) {
-                return false;
+            if (edge.node.frontmatter.ctf.toLowerCase() === ctf.toLowerCase()) {
+                return true;
             }
+            return false;
         }
-        return true;
+        if (q) {
+            // For a general query, we will match incomplete and portions of a search (and not just exact)
+            if (edge.node.frontmatter.ctf.includes(q.toLowerCase())) {
+                return true;
+            }
+            if (edge.node.frontmatter.tags.includes(q.toLowerCase())) {
+                return true;
+            }
+            if (edge.node.frontmatter.title.includes(q.toLowerCase())) {
+                return true;
+            }
+            return false;
+        }
     }
     return true;
 }
