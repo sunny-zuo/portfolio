@@ -38,12 +38,3 @@
 .ctfCard a {
     width: 100%;
 }
-
-/* Use dummy cards to have the final line be left aligned */
-.dummy {
-    height: 0px;
-}
-
-.dummy a {
-    width: 0%;
-}

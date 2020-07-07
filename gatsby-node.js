@@ -1,7 +1,7 @@
 exports.createPages = async ({ actions, graphql, reporter }) => {
     const { createPage } = actions
 
-    const ctfTemplate = require.resolve('./src/templates/ctfTemplate.js');
+    const ctfTemplate = require.resolve('./src/templates/ctf-template.js');
 
     const formatPath = (ctf, title) => {
         return `/ctf-writeups/` +

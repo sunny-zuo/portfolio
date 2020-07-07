@@ -12,7 +12,7 @@ export default function CTFCard (props) {
 
     if (props?.dummy === true) {
         return (
-            <div className='ctfCard dummy'></div>
+            <div className='ctfCard' style={{ height: "0px" }}></div>
         )
     }
     return (

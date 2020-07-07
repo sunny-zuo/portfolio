@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/header";
 import Layout from "../components/layout";
 import CTFCard from "../components/ctfcard";
 import PageHelmet from "../components/pageHelmet";
@@ -25,19 +24,19 @@ export default function CTFWriteups({data}) {
         baseText += (searchQuery?.tag) ? ` with tag "${searchQuery.tag.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
         baseText += (searchQuery?.q) ? ` for the query "${searchQuery.q.replace(/[^a-zA-Z0-9 ]/g, '')}".` : '.';
         Posts.push(<h1 style={style} key='noSearchFound'>{baseText}</h1>)
-    } else {
+    } else { // insert dummy cards so that cards are left aligned on the final line
         Posts.push(<li key="dummy1"><CTFCard dummy={true} /></li>);
         Posts.push(<li key="dummy2"><CTFCard dummy={true} /></li>);
     }
     return (
         <Layout>
             <PageHelmet title={pageTitle} />
-            <Header headerText={pageTitle} />
-                <div className="ctfCards" style={{ textAlign: "center" }}>
-                    <ul>
-                        {Posts}
-                    </ul>
-                </div>
+            <h1>{pageTitle}</h1>
+            <div className="ctfCards" style={{ textAlign: "center" }}>
+                <ul>
+                    {Posts}
+                </ul>
+            </div>
         </Layout>
     )
 }

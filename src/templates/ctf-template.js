@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import TagHolder from "../components/tagHolder"
 import PageHelmet from "../components/pageHelmet"
-import "../styles/ctfTemplate.css"
+import "../styles/ctf-template.css"
 
 export default function Template({data}) {
     const { markdownRemark } = data;

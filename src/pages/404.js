@@ -1,5 +1,4 @@
 import React from "react"
-import Header from "../components/header"
 import Layout from "../components/layout"
 import PageHelmet from "../components/pageHelmet"
 
@@ -12,7 +11,7 @@ export default function PageNotFound() {
     return (
         <Layout>
             <PageHelmet title="Page Not Found" />
-            <Header headerText="Page Not Found" />
+            <h1>Page Not Found</h1>
             <h2 style={h2Styles}>Oops! The page you're looking for could not be found.</h2>
         </Layout>
     )
