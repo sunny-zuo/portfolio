@@ -25,8 +25,8 @@ export default function CTFWriteups({data}) {
         baseText += (searchQuery?.q) ? ` for the query "${searchQuery.q.replace(/[^a-zA-Z0-9 ]/g, '')}".` : '.';
         Posts.push(<h1 style={style} key='noSearchFound'>{baseText}</h1>)
     } else { // insert dummy cards so that cards are left aligned on the final line
-        Posts.push(<li key="dummy1"><CTFCard dummy={true} /></li>);
-        Posts.push(<li key="dummy2"><CTFCard dummy={true} /></li>);
+        Posts.push(<li key="dummy1"><div className='ctfCard' style={{ height: "0px" }}></div></li>);
+        Posts.push(<li key="dummy2"><div className='ctfCard' style={{ height: "0px" }}></div></li>);
     }
     return (
         <Layout>
