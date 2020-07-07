@@ -10,16 +10,20 @@ class CTFWriteups extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isClient: false
+            hasMounted: false
         }
     }
 
     componentDidMount() {
-        this.setState({ isClient: true });
+        this.setState({ hasMounted: true });
     }
-    
+
     render() {
         const { data, location } = this.props;
+
+        if (!this.state.hasMounted) {
+            return null;
+        }
 
         const searchQuery = getSearchQueries(location.search);
         const Posts = data.allMarkdownRemark.edges.filter(edge => matchSearch(edge, searchQuery)).map(edge => <li key={`${edge.node.frontmatter.ctf}-${edge.node.frontmatter.title}`}><CTFCard title={edge.node.frontmatter.title} date={edge.node.frontmatter.date} ctf={edge.node.frontmatter.ctf} tags={edge.node.frontmatter.tags} key={edge.node.frontmatter.title} /></li>)
