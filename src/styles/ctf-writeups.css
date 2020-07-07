@@ -1,0 +1,8 @@
+.ctfCards ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ctfCards li {
+    display: inline-block;
+}

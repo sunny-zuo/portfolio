@@ -8,7 +8,7 @@ export default function Home() {
     <Layout>
       <PageHelmet title="Home" />
       <Header headerText="Home"/>
-      <p>Hello! This page is currently still under construction. In the meantime, check out the About or CTF Writeup pages!</p>
+      <p>Hello! This page is currently still under construction. In the meantime, check out the CTF Writeup pages!</p>
     </Layout>
   )
 }

@@ -1,9 +1,9 @@
 .ctfCard {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    width: 90%;
-    max-width: 340px;
+    width: 340px;
+    max-width: 80vw;
     height: 136px;
-    display: inline-block;
+    display: flex;
     margin: 10px 8px;
     position: relative;
     text-align: left;
@@ -33,4 +33,17 @@
 
 .ctfCard .cardContainer {
     padding: 2px 16px;
+}
+
+.ctfCard a {
+    width: 100%;
+}
+
+/* Use dummy cards to have the final line be left aligned */
+.dummy {
+    height: 0px;
+}
+
+.dummy a {
+    width: 0%;
 }

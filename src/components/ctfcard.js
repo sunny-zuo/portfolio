@@ -10,8 +10,13 @@ export default function CTFCard (props) {
             title.replace(/\s/g, "-").toLowerCase().replace(/[^a-zA-Z0-9-]/g, "")
     }
 
+    if (props?.dummy === true) {
+        return (
+            <div className='ctfCard dummy'></div>
+        )
+    }
     return (
-        <div className="ctfCard">
+        <div className='ctfCard'>
             <Link to={formatPath(props.ctf, props.title)} style={{ textDecoration: 'none' }}>
                 <div className="cardContainer">
                     <h1>{props.title}</h1>

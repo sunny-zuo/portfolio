@@ -6,11 +6,12 @@ import PageHelmet from "../components/pageHelmet";
 import { graphql } from 'gatsby';
 import { useLocation } from '@reach/router';
 import queryString from 'query-string';
+import "../styles/ctf-writeups.css"
 
 export default function CTFWriteups({data}) {
     const location = useLocation();
     const searchQuery = getSearchQueries(location.search);
-    const Posts = data.allMarkdownRemark.edges.filter(edge => matchSearch(edge, searchQuery)).map(edge => <CTFCard title={edge.node.frontmatter.title} date={edge.node.frontmatter.date} ctf={edge.node.frontmatter.ctf} tags={edge.node.frontmatter.tags} key={edge.node.frontmatter.title}/>)
+    const Posts = data.allMarkdownRemark.edges.filter(edge => matchSearch(edge, searchQuery)).map(edge => <li key={`${edge.node.frontmatter.ctf}-${edge.node.frontmatter.title}`}><CTFCard title={edge.node.frontmatter.title} date={edge.node.frontmatter.date} ctf={edge.node.frontmatter.ctf} tags={edge.node.frontmatter.tags} key={edge.node.frontmatter.title} /></li>)
     const pageTitle = (searchQuery?.ctf) ? `${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')} Writeups` : "CTF Writeups";
 
     if (Posts.length === 0) {
@@ -24,13 +25,18 @@ export default function CTFWriteups({data}) {
         baseText += (searchQuery?.tag) ? ` with tag "${searchQuery.tag.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
         baseText += (searchQuery?.q) ? ` for the query "${searchQuery.q.replace(/[^a-zA-Z0-9 ]/g, '')}".` : '.';
         Posts.push(<h1 style={style} key='noSearchFound'>{baseText}</h1>)
+    } else {
+        Posts.push(<li key="dummy1"><CTFCard dummy={true} /></li>);
+        Posts.push(<li key="dummy2"><CTFCard dummy={true} /></li>);
     }
     return (
         <Layout>
             <PageHelmet title={pageTitle} />
             <Header headerText={pageTitle} />
                 <div className="ctfCards" style={{ textAlign: "center" }}>
-                    {Posts}
+                    <ul>
+                        {Posts}
+                    </ul>
                 </div>
         </Layout>
     )
