@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../components/layout";
 import CTFCard from "../components/ctfcard";
 import PageHelmet from "../components/pageHelmet";
@@ -8,10 +8,19 @@ import queryString from 'query-string';
 import "../styles/ctf-writeups.css"
 
 export default function CTFWriteups({data}) {
+    const [isClient, setClient] = useState(false);
+    useEffect(() => {
+        setClient(true);
+    }, []);
+
     const location = useLocation();
     const searchQuery = getSearchQueries(location.search);
     const Posts = data.allMarkdownRemark.edges.filter(edge => matchSearch(edge, searchQuery)).map(edge => <li key={`${edge.node.frontmatter.ctf}-${edge.node.frontmatter.title}`}><CTFCard title={edge.node.frontmatter.title} date={edge.node.frontmatter.date} ctf={edge.node.frontmatter.ctf} tags={edge.node.frontmatter.tags} key={edge.node.frontmatter.title} /></li>)
     const pageTitle = (searchQuery?.ctf) ? `${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')} Writeups` : "CTF Writeups";
+
+    if (!isClient ) {
+        return null;
+    }
 
     if (Posts.length === 0) {
         const style = {
