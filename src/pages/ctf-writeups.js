@@ -1,53 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Layout from "../components/layout";
 import CTFCard from "../components/ctfcard";
 import PageHelmet from "../components/pageHelmet";
 import { graphql } from 'gatsby';
-import { useLocation } from '@reach/router';
 import queryString from 'query-string';
 import "../styles/ctf-writeups.css"
 
-export default function CTFWriteups({data}) {
-    const [isClient, setClient] = useState(false);
-    useEffect(() => {
-        setClient(true);
-    }, []);
-
-    const location = useLocation();
-    const searchQuery = getSearchQueries(location.search);
-    const Posts = data.allMarkdownRemark.edges.filter(edge => matchSearch(edge, searchQuery)).map(edge => <li key={`${edge.node.frontmatter.ctf}-${edge.node.frontmatter.title}`}><CTFCard title={edge.node.frontmatter.title} date={edge.node.frontmatter.date} ctf={edge.node.frontmatter.ctf} tags={edge.node.frontmatter.tags} key={edge.node.frontmatter.title} /></li>)
-    const pageTitle = (searchQuery?.ctf) ? `${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')} Writeups` : "CTF Writeups";
-
-    if (!isClient ) {
-        return null;
-    }
-
-    if (Posts.length === 0) {
-        const style = {
-            textAlign: 'left',
-            fontSize: '20px',
-            fontWeight: '400'
+class CTFWriteups extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isClient: false
         }
-        let baseText = 'Unfortunately, no writeups were found ';
-        baseText += (searchQuery?.ctf) ? `for "${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
-        baseText += (searchQuery?.tag) ? ` with tag "${searchQuery.tag.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
-        baseText += (searchQuery?.q) ? ` for the query "${searchQuery.q.replace(/[^a-zA-Z0-9 ]/g, '')}".` : '.';
-        Posts.push(<h1 style={style} key='noSearchFound'>{baseText}</h1>)
-    } else { // insert dummy cards so that cards are left aligned on the final line
-        Posts.push(<li key="dummy1"><div className='ctfCard' style={{ height: "0px" }}></div></li>);
-        Posts.push(<li key="dummy2"><div className='ctfCard' style={{ height: "0px" }}></div></li>);
     }
-    return (
-        <Layout>
-            <PageHelmet title={pageTitle} />
-            <h1>{pageTitle}</h1>
-            <div className="ctfCards" style={{ textAlign: "center" }}>
-                <ul>
-                    {Posts}
-                </ul>
-            </div>
-        </Layout>
-    )
+
+    componentDidMount() {
+        this.setState({ isClient: true });
+    }
+    
+    render() {
+        const { data, location } = this.props;
+
+        const searchQuery = getSearchQueries(location.search);
+        const Posts = data.allMarkdownRemark.edges.filter(edge => matchSearch(edge, searchQuery)).map(edge => <li key={`${edge.node.frontmatter.ctf}-${edge.node.frontmatter.title}`}><CTFCard title={edge.node.frontmatter.title} date={edge.node.frontmatter.date} ctf={edge.node.frontmatter.ctf} tags={edge.node.frontmatter.tags} key={edge.node.frontmatter.title} /></li>)
+        const pageTitle = (searchQuery?.ctf) ? `${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')} Writeups` : "CTF Writeups";
+        
+        if (Posts.length === 0) {
+            const style = {
+                textAlign: 'left',
+                fontSize: '20px',
+                fontWeight: '400'
+            }
+            let baseText = 'Unfortunately, no writeups were found ';
+            baseText += (searchQuery?.ctf) ? `for "${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
+            baseText += (searchQuery?.tag) ? ` with tag "${searchQuery.tag.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
+            baseText += (searchQuery?.q) ? ` for the query "${searchQuery.q.replace(/[^a-zA-Z0-9 ]/g, '')}".` : '.';
+            Posts.push(<h1 style={style} key='noSearchFound'>{baseText}</h1>)
+        } else { // insert dummy cards so that cards are left aligned on the final line
+            Posts.push(<li key="dummy1"><div className='ctfCard' style={{ height: "0px" }}></div></li>);
+            Posts.push(<li key="dummy2"><div className='ctfCard' style={{ height: "0px" }}></div></li>);
+        }
+        return (
+            <Layout>
+                <PageHelmet title={pageTitle} />
+                <h1>{pageTitle}</h1>
+                <div className="ctfCards" style={{ textAlign: "center" }}>
+                    <ul>
+                        {Posts}
+                    </ul>
+                </div>
+            </Layout>
+        )
+    }
 }
 
 const matchSearch = (edge, searchQuery) => {
@@ -107,3 +111,5 @@ export const pageQuery = graphql`{
             }
         }
     }`
+
+export default CTFWriteups;
