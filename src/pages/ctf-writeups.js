@@ -5,6 +5,7 @@ import PageHelmet from "../components/pageHelmet";
 import { graphql } from 'gatsby';
 import queryString from 'query-string';
 import "../styles/ctf-writeups.css"
+import { navigate } from "@reach/router";
 
 class CTFWriteups extends React.Component {
     constructor(props) {
@@ -16,6 +17,14 @@ class CTFWriteups extends React.Component {
 
     componentDidMount() {
         this.setState({ hasMounted: true });
+    }
+
+    handleInputChange(event) {
+        if (event.target.value != "") {
+            navigate(`/ctf-writeups/?q=${event.target.value}`)
+        } else {
+            navigate(`/ctf-writeups/`)
+        }
     }
 
     render() {
@@ -48,6 +57,9 @@ class CTFWriteups extends React.Component {
             <Layout>
                 <PageHelmet title={pageTitle} />
                 <h1>{pageTitle}</h1>
+                <form>
+                    <input type="text" name="searchQuery" defaultValue={getCurrentSearch(location.search)} onChange={this.handleInputChange}></input>
+                </form>
                 <div className="ctfCards" style={{ textAlign: "center" }}>
                     <ul>
                         {Posts}
@@ -64,25 +76,25 @@ const matchSearch = (edge, searchQuery) => {
         if (tag) {
             const tagArray = edge.node.frontmatter.tags.split(", ");
             for (let i = 0; i < tagArray.length; i++) {
-                if (tagArray[i] === tag.toLowerCase()) { return true; }
+                if (tag.localeCompare(tagArray[i], undefined, { sensitivity: 'base' }) === 0) { return true; }
             }
             return false;
         }
         if (ctf) {
-            if (edge.node.frontmatter.ctf.toLowerCase() === ctf.toLowerCase()) {
+            if (ctf.localeCompare(edge.node.frontmatter.ctf, undefined, { sensitivity: 'base' }) === 0) {
                 return true;
             }
             return false;
         }
         if (q) {
             // For a general query, we will match incomplete and portions of a search (and not just exact)
-            if (edge.node.frontmatter.ctf.includes(q.toLowerCase())) {
+            if (edge.node.frontmatter.ctf.toLowerCase().includes(q.toLowerCase())) {
                 return true;
             }
-            if (edge.node.frontmatter.tags.includes(q.toLowerCase())) {
+            if (edge.node.frontmatter.tags.toLowerCase().includes(q.toLowerCase())) {
                 return true;
             }
-            if (edge.node.frontmatter.title.includes(q.toLowerCase())) {
+            if (edge.node.frontmatter.title.toLowerCase().includes(q.toLowerCase())) {
                 return true;
             }
             return false;
@@ -96,6 +108,17 @@ const getSearchQueries = (query) => {
         const searchQuery = queryString.parse(query);
         return searchQuery;
     }
+}
+
+const getCurrentSearch = (query) => {
+    if (query) {
+        const searchQuery = queryString.parse(query);
+        if (searchQuery.q) {
+            return searchQuery.q;
+        }
+    }
+
+    return "";
 }
 
 export const pageQuery = graphql`{
