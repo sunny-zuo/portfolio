@@ -20,7 +20,7 @@ class CTFWriteups extends React.Component {
     }
 
     handleInputChange(event) {
-        if (event.target.value != "") {
+        if (event.target.value !== "") {
             navigate(`/ctf-writeups/?q=${event.target.value}`)
         } else {
             navigate(`/ctf-writeups/`)
@@ -56,10 +56,12 @@ class CTFWriteups extends React.Component {
         return (
             <Layout>
                 <PageHelmet title={pageTitle} />
-                <h1>{pageTitle}</h1>
-                <form>
-                    <input type="text" name="searchQuery" defaultValue={getCurrentSearch(location.search)} onChange={this.handleInputChange}></input>
-                </form>
+                <div className="ctfCardHead">
+                    <h1>{pageTitle}</h1>
+                    <form>
+                        <input type="text" name="searchQuery" aria-label="Search Query" placeholder="Search Writeups" defaultValue={getCurrentSearch(location.search)} onChange={this.handleInputChange}></input>
+                    </form>
+                </div>
                 <div className="ctfCards" style={{ textAlign: "center" }}>
                     <ul>
                         {Posts}

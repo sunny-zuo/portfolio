@@ -6,3 +6,46 @@
 .ctfCards li {
     display: inline-block;
 }
+
+.ctfCardHead {
+    overflow: auto;
+}
+
+.ctfCardHead h1 {
+    float: left;
+}
+
+.ctfCardHead form {
+    float: right;
+    padding-top: 20px;
+}
+
+.ctfCardHead input {
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 10px 12px;
+    background-color: white;
+    width: 300px;
+}
+
+@media screen and (max-width: 600px) {
+    .ctfCardHead {
+        max-width: 95%;
+        width: 300px;
+        margin: auto;
+    }
+    .ctfCardHead h1 {
+        float: none;
+    }
+
+    .ctfCardHead form {
+        padding-top: 0px;
+        float: none;
+    }
+
+    .ctfCardHead input {
+        max-width: 100%;
+    }
+}
