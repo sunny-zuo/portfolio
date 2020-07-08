@@ -1,3 +1,7 @@
+.ctfCards {
+    margin-top: -16px;
+}
+
 .ctfCards ul {
     list-style: none;
     padding: 0;
@@ -9,6 +13,7 @@
 
 .ctfCardHead {
     overflow: auto;
+    height: 80px;
 }
 
 .ctfCardHead h1 {
@@ -31,10 +36,15 @@
 }
 
 @media screen and (max-width: 600px) {
+    .ctfCards {
+        margin-top: auto;
+    }
+
     .ctfCardHead {
-        max-width: 95%;
-        width: 300px;
+        width: 340px;
+        max-width: 80vw;
         margin: auto;
+        height: auto;
     }
     .ctfCardHead h1 {
         float: none;
@@ -46,6 +56,6 @@
     }
 
     .ctfCardHead input {
-        max-width: 100%;
+        width: 100%;
     }
 }
