@@ -20,11 +20,19 @@ class CTFWriteups extends React.Component {
     }
 
     handleInputChange(event) {
+        const currentQuery = getSearchQueries(window.location.search);
+
+        let query = (currentQuery?.ctf) ? `?ctf=${currentQuery.ctf}&` : '?';
+        query += (currentQuery?.tag) ? `tag=${currentQuery.tag}&` : '';
+
         if (event.target.value !== "") {
-            navigate(`/ctf-writeups/?q=${event.target.value}`)
-        } else {
-            navigate(`/ctf-writeups/`)
+            query += `q=${event.target.value}`;
         }
+        // remove trailing '&' to clean up query string
+        if (query.slice(-1) === '&') {
+            query = query.substr(0, query.length - 1);
+        }
+        navigate(`/ctf-writeups/${query}`);
     }
 
     render() {
@@ -77,20 +85,22 @@ const matchSearch = (edge, searchQuery) => {
         const { tag, ctf, q } = searchQuery;
         if (tag) {
             const tagArray = edge.node.frontmatter.tags.split(", ");
+            let matchFound = false;
             for (let i = 0; i < tagArray.length; i++) {
-                if (tag.localeCompare(tagArray[i], undefined, { sensitivity: 'base' }) === 0) { return true; }
+                if (tag.localeCompare(tagArray[i], undefined, { sensitivity: 'base' }) === 0) { matchFound = true; }
             }
-            return false;
+            if (!matchFound) {
+                return false;
+            }
         }
         if (ctf) {
-            if (ctf.localeCompare(edge.node.frontmatter.ctf, undefined, { sensitivity: 'base' }) === 0) {
-                return true;
+            if (ctf.localeCompare(edge.node.frontmatter.ctf, undefined, { sensitivity: 'base' }) !== 0) {
+                return false;
             }
-            return false;
         }
         if (q) {
             // For a general query, we will match incomplete and portions of a search (and not just exact)
-            if (edge.node.frontmatter.ctf.toLowerCase().includes(q.toLowerCase())) {
+            if (edge.node.frontmatter.ctf.toLowerCase().includes(q.toLowerCase()) && !(ctf)) { // don't check ctfs if ctf query is set
                 return true;
             }
             if (edge.node.frontmatter.tags.toLowerCase().includes(q.toLowerCase())) {
@@ -99,8 +109,11 @@ const matchSearch = (edge, searchQuery) => {
             if (edge.node.frontmatter.title.toLowerCase().includes(q.toLowerCase())) {
                 return true;
             }
-            return false;
+            else {
+                return false;
+            }
         }
+        return true;
     }
     return true;
 }
