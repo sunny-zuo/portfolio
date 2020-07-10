@@ -28,8 +28,11 @@ class CTFWriteups extends React.Component {
         if (event.target.value !== "") {
             query += `q=${event.target.value}`;
         }
-        // remove trailing '&' to clean up query string
+        // remove trailing '&' and '?' to clean up query string
         if (query.slice(-1) === '&') {
+            query = query.substr(0, query.length - 1);
+        }
+        if (query.slice(-1) === '?') {
             query = query.substr(0, query.length - 1);
         }
         navigate(`/ctf-writeups/${query}`);
@@ -47,16 +50,11 @@ class CTFWriteups extends React.Component {
         const pageTitle = (searchQuery?.ctf) ? `${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')} Writeups` : "CTF Writeups";
         
         if (Posts.length === 0) {
-            const style = {
-                textAlign: 'left',
-                fontSize: '20px',
-                fontWeight: '400'
-            }
             let baseText = 'Unfortunately, no writeups were found ';
             baseText += (searchQuery?.ctf) ? `for "${searchQuery.ctf.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
             baseText += (searchQuery?.tag) ? ` with tag "${searchQuery.tag.replace(/[^a-zA-Z0-9 ]/g, '')}"` : '';
             baseText += (searchQuery?.q) ? ` for the query "${searchQuery.q.replace(/[^a-zA-Z0-9 ]/g, '')}".` : '.';
-            Posts.push(<h1 style={style} key='noSearchFound'>{baseText}</h1>)
+            Posts.push(<h1 className='noResultMsg' key='noResultMsg'>{baseText}</h1>)
         } else { // insert dummy cards so that cards are left aligned on the final line
             Posts.push(<li key="dummy1"><div className='ctfCard' style={{ height: "0px" }}></div></li>);
             Posts.push(<li key="dummy2"><div className='ctfCard' style={{ height: "0px" }}></div></li>);

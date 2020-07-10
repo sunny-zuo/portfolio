@@ -34,6 +34,12 @@
     width: 300px;
 }
 
+.noResultMsg {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+}
+
 @media screen and (max-width: 600px) {
     .ctfCards {
         margin-top: auto;
@@ -56,5 +62,10 @@
 
     .ctfCardHead input {
         width: 100%;
+    }
+    
+    .noResultMsg {
+        max-width: 80vw;
+        margin: auto;
     }
 }
