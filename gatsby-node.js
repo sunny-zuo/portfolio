@@ -29,14 +29,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         reporter.panicOnBuild(`Error with GraphQL query`);
         return;
     }
-
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    
+    const posts = result.data.allMarkdownRemark.edges;
+    posts.forEach(({ node }, index) => {
         createPage({
             path: formatPath(node.frontmatter.ctf, node.frontmatter.title),
             component: ctfTemplate,
             context: {
                 ctf: node.frontmatter.ctf,
-                title: node.frontmatter.title
+                title: node.frontmatter.title,
+                prev: index === 0 ? null : posts[index - 1].node,
+                next: index === (posts.length - 1) ? null : posts[index + 1].node
             }
         })
     })

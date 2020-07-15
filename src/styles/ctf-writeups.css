@@ -40,6 +40,16 @@
     font-weight: 400;
 }
 
+.right {
+    float: right;
+    text-align: right;
+}
+
+.left {
+    float: left;
+    text-align: left;
+}
+
 @media screen and (max-width: 600px) {
     .ctfCards {
         margin-top: auto;
