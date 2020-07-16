@@ -30,6 +30,10 @@ pre[class*="language-"] {
 
 }
 
+code[class*="language-js"] {
+	white-space: pre-wrap;
+}
+
 /* Code blocks */
 pre[class*="language-"] {
 	padding: 1em;
