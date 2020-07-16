@@ -16,3 +16,23 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
 }
+
+.pagination h5 {
+    font-family: 'Lato', sans-serif;
+    color: green;
+    font-size: 18px;
+}
+
+.pagination .lowlight {
+    color: #696969;
+    font-size: 16px;
+}
+.right {
+    float: right;
+    text-align: right;
+}
+
+.left {
+    float: left;
+    text-align: left;
+}

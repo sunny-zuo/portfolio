@@ -3,6 +3,8 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import TagHolder from "../components/tagHolder"
 import PageHelmet from "../components/pageHelmet"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import "../styles/ctf-template.css"
 
 export default function Template({data, pageContext}) {
@@ -28,8 +30,14 @@ export default function Template({data, pageContext}) {
                 </div>
             </div>
             <div className="pagination">
-                {next && <Link to={formatPath(next.frontmatter.ctf, next.frontmatter.title)}><div className="left"><p>Next<br />{next.frontmatter.title}</p></div></Link>}
-                {prev && <Link to={formatPath(prev.frontmatter.ctf, prev.frontmatter.title)}><div className="right"><p>Previous<br />{prev.frontmatter.title}</p></div></Link>}
+                {next && <Link to={formatPath(next.frontmatter.ctf, next.frontmatter.title)}><div className="right">
+                    <h5><span className="lowlight">Next </span><FontAwesomeIcon icon={faAngleRight} color="black" />
+                    <br />{next.frontmatter.title}</h5>
+                    </div></Link>}
+                {prev && <Link to={formatPath(prev.frontmatter.ctf, prev.frontmatter.title)}><div className="left">
+                    <h5><FontAwesomeIcon icon={faAngleLeft} color="black" /><span className="lowlight"> Previous</span>
+                    <br />{prev.frontmatter.title}</h5>
+                    </div></Link>}
             </div>
         </Layout>
     )
