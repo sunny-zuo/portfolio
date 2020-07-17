@@ -30,14 +30,16 @@ export default function Template({data, pageContext}) {
                 </div>
             </div>
             <div className="pagination">
-                {next && <Link to={formatPath(next.frontmatter.ctf, next.frontmatter.title)}><div className="right">
-                    <h5><span className="lowlight">Next </span><FontAwesomeIcon icon={faAngleRight} color="black" />
-                    <br />{next.frontmatter.title}</h5>
-                    </div></Link>}
-                {prev && <Link to={formatPath(prev.frontmatter.ctf, prev.frontmatter.title)}><div className="left">
+                {prev && <div className="left"><Link to={formatPath(prev.frontmatter.ctf, prev.frontmatter.title)}>
                     <h5><FontAwesomeIcon icon={faAngleLeft} color="black" /><span className="lowlight"> Previous</span>
-                    <br />{prev.frontmatter.title}</h5>
-                    </div></Link>}
+                    <br />{prev.frontmatter.title}
+                        <br /><span className="ctf">{prev.frontmatter.ctf}</span></h5>
+                </Link></div>}
+                {next && <div className="right"><Link to={formatPath(next.frontmatter.ctf, next.frontmatter.title)}>
+                    <h5><span className="lowlight">Next </span><FontAwesomeIcon icon={faAngleRight} color="black" />
+                    <br />{next.frontmatter.title}
+                    <br /><span className="ctf">{next.frontmatter.ctf}</span></h5>
+                    </Link></div>}
             </div>
         </Layout>
     )

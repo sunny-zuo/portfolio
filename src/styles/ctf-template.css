@@ -20,19 +20,29 @@
 .pagination h5 {
     font-family: 'Lato', sans-serif;
     color: green;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.pagination a {
+    text-decoration: none;
 }
 
 .pagination .lowlight {
     color: #696969;
     font-size: 16px;
 }
+
+.pagination .ctf {
+    color: black;
+    font-size: 14px;
+}
+
 .right {
-    float: right;
     text-align: right;
+    float: right;
 }
 
 .left {
-    float: left;
     text-align: left;
+    float: left;
 }
