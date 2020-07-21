@@ -27,11 +27,6 @@ pre[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
-
-}
-
-code[class*="language-js"] {
-	white-space: pre-wrap;
 }
 
 /* Code blocks */
