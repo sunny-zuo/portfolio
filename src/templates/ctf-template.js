@@ -29,6 +29,7 @@ export default function Template({data, pageContext}) {
                     <div className="ctf-writeup-content" dangerouslySetInnerHTML={{ __html: html }} />
                 </div>
             </div>
+            <hr />
             <div className="pagination">
                 {prev && <div className="left"><Link to={formatPath(prev.frontmatter.ctf, prev.frontmatter.title)}>
                     <h5><FontAwesomeIcon icon={faAngleLeft} color="black" /><span className="lowlight"> Previous</span>
