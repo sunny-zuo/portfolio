@@ -68,6 +68,9 @@ class CTFWriteups extends React.Component {
                         <input type="text" name="searchQuery" aria-label="Search Query" placeholder="Search Writeups" defaultValue={getCurrentSearch(location.search)} onChange={this.handleInputChange}></input>
                     </form>
                 </div>
+                <div className="ctfInfo">
+                    <h4>Capture the Flag events (CTFs) are information security competitions where the goal is to solve a variety of challenges in a number of categories (such as web exploitation, forensics, cryptography, binary exploitation, etc). Each challenge has a "flag" that teams need to find to get points. I specialize in web exploitation challenges, so the vast majority of my writeups are web related.</h4>
+                </div>
                 <div className="ctfCards" style={{ textAlign: "center" }}>
                     <ul>
                         {Posts}

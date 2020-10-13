@@ -34,6 +34,13 @@
     width: 300px;
 }
 
+.ctfInfo h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin-top: -2px;
+    font-weight: 400;
+}
+
 .noResultMsg {
     text-align: left;
     font-size: 20px;
@@ -62,6 +69,15 @@
 
     .ctfCardHead input {
         width: 100%;
+    }
+
+    .ctfInfo h4 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        padding-top: 12px;
+        font-weight: 400;
+        max-width: 80vw;
+        margin: auto;
     }
     
     .noResultMsg {
