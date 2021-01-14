@@ -23,7 +23,10 @@ module.exports = {
           options: {
             classPrefix: "language-",
           }
-        }
+        },
+        {
+          resolve: `gatsby-plugin-netlify`
+        },
       ]
     }
   }],
